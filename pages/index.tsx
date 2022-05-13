@@ -75,11 +75,26 @@ const Home: NextPage = () => {
         <div className="text-4xl font-semibold font-OpenSans pb-10">
           Archathon ends in 🏁
         </div>
-        <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-2 sm:gap-x-4 mt-10 text-black text-[12rem] font-Poppins font-semibold">
-          <div id="time-days" className=""></div>:
-          <div id="time-hours" className=""></div>:
-          <div id="time-mins" className=""></div>:
-          <div id="time-secs" className=""></div>
+        <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-2 sm:gap-x-4 mt-10 text-black text-[10rem] font-Poppins font-semibold">
+          <div className="flex flex-col items-center">
+            <div id="time-days"></div>
+            <span className="text-xl block">DAYS</span>
+          </div>
+          :
+          <div className="flex flex-col items-center">
+            <div id="time-hours"></div>
+            <span className="text-xl block">HOURS</span>
+          </div>
+          :
+          <div className="flex flex-col items-center">
+            <div id="time-mins"></div>
+            <span className="text-xl block">MINUTES</span>
+          </div>
+          :
+          <div className="flex flex-col items-center">
+            <div id="time-secs"></div>
+            <span className="text-xl block">SECONDS</span>
+          </div>
         </div>
       </div>
     </div>
