@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       // Difference between now and the count down date
       var diff = countDownDate - now;
 
-      if (now < new Date("May 14, 2022 20:50:00 UTC+5:30").getTime()) {
+      if (now > new Date("May 14, 2022 20:50:00 UTC+5:30").getTime()) {
         setDanger(true);
       }
 
