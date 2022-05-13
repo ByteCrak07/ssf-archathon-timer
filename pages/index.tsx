@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect } from "react";
-import styles from "../styles/Home.module.css";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
+  const [danger, setDanger] = useState(false);
+
   useEffect(() => {
     var countDownDate = new Date("May 14, 2022 21:00:00 UTC+5:30").getTime();
 
@@ -14,6 +15,10 @@ const Home: NextPage = () => {
 
       // Difference between now and the count down date
       var diff = countDownDate - now;
+
+      if (now < new Date("May 14, 2022 20:50:00 UTC+5:30").getTime()) {
+        setDanger(true);
+      }
 
       var days, hours, minutes, seconds;
 
@@ -71,11 +76,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-screen h-screen bg-[#fc0] flex flex-col items-center justify-center pb-20">
+      <div
+        className={`w-screen h-screen flex flex-col items-center justify-center pb-20 ${
+          !danger ? "bg-[#fc0]" : "bg-red-500  text-white"
+        }`}
+      >
         <div className="text-4xl font-semibold font-OpenSans pb-10">
           Archathon ends in 🏁
         </div>
-        <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-2 sm:gap-x-4 mt-10 text-black text-[10rem] font-Poppins font-semibold">
+        <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-2 sm:gap-x-4 mt-10 text-[10rem] font-Poppins font-semibold">
           <div className="flex flex-col items-center">
             <div id="time-days"></div>
             <span className="text-xl block">DAYS</span>
